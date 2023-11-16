@@ -11,6 +11,7 @@ const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildPresences
   ],
 });
 
@@ -18,7 +19,7 @@ client.commands = new Collection();
 
 async function connect() {
   try {
-    // await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI);
 
     new CommandHandler({
       client,
